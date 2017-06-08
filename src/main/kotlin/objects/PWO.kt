@@ -1,6 +1,7 @@
 package objects
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText
@@ -62,6 +63,7 @@ data class PWOMilestone(
         @JacksonXmlProperty(localName="dtend") val dtend: String? = "",
         @JacksonXmlProperty(localName="affectations") val affectations: List<PWOAffectation>? = emptyList())
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 data class PWOAffectation(
         @JacksonXmlProperty(localName="affectation") val type: String? = "",
         @JacksonXmlProperty(localName="title") val title: String? = "",
